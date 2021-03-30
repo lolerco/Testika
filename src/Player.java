@@ -90,7 +90,8 @@ public class Player {
 
     }
 
-    public void movePlayer() {
+    // Allows updating playersLoc to nearestLoc using printNearest method in Location class
+    public void movePlayer() { 
 
         System.out.println("Wohin moechtest du gehen?");
  
@@ -102,6 +103,17 @@ public class Player {
         
         moveToInt = moveToInt--; // warum funktioniert das nicht aber in getNearestAt(i-1) schon?
         this.playerLoc = playerLoc.getNearestAt(moveToInt);
+
+    }
+
+    // Generates enemies in certain areas of the map
+    public void playerEnters() {
+        // Verschiedene Locations variieren (Castle, ruins, graveyard)?
+        if (playerLoc == MainTestika.forest || playerLoc == MainTestika.shrine || playerLoc == MainTestika.revein || playerLoc == MainTestika.mine || playerLoc == MainTestika.coast || playerLoc == MainTestika.district || playerLoc == MainTestika.graveyard || playerLoc == MainTestika.ruins || playerLoc == MainTestika.castle) { 
+
+            
+
+        }
 
     }
 

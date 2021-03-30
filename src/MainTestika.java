@@ -46,13 +46,13 @@ public class MainTestika {
         village = new Location("Dorf", villageSur, true);
         city = new Location("Stadt", citySur, false);
         shrine = new Location("Vergessener Schrein", shrineSur, false);
+        revein = new Location("Kluft", reveinSur, false);
         mine = new Location("Altes Bergwerk", mineSur, false);
         coast = new Location("Kueste", coastSur, false);
         district = new Location("Außenbezirk", disSur, false);
         graveyard = new Location("Friedhof", grvySur, false);
         ruins = new Location("Ruinen", ruinsSur, false);
         castle = new Location("Schloss", castleSur, false);
-        revein = new Location("Kluft", reveinSur, false);
 
         // Connecting Locations
         Location.connect(forest, village, "routeDorf");
