@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Player {
 
     // Attributes of Player
@@ -15,7 +17,7 @@ public class Player {
     private int pdef;
     private int mdef;
     private Location playerLoc;
-    // Inventory List
+    private List<Item> inventory = new ArrayList<>();
 
     public Player(int profession, String heroName, Location playerLoc) {
 
@@ -23,7 +25,9 @@ public class Player {
         this.profession = profession;
         this.name = heroName;
         this.playerLoc = playerLoc;
+        this.inventory = new ArrayList<>();
 
+ 
         // Profession Stats
         switch (profession) {
             
@@ -114,6 +118,64 @@ public class Player {
             
 
         }
+
+    }
+
+    // Inventory Interaction
+    public void showInventory() {   //Displays all Items in Inventory
+
+        for (int i = 0; i < inventory.size(); i++) {
+
+            Item item = this.inventory.get(i);
+            i++;
+            System.out.println("[" + i + "]" + " " + item.getName());
+            i--;
+        }
+
+        selectItem();
+
+    }
+
+    public void selectItem() {
+
+        System.out.println("Moechtest du [1] ein Item auswaehlen oder [2] zurueck?");
+        String itemSelectStg = System.console().readLine();
+        int itemSelectInt = Integer.parseInt(itemSelectStg);
+
+        switch (itemSelectInt) {
+
+            case 1:
+                interactItem(itemSelectInt);
+                break;
+            
+            case 2:
+                break;
+
+        }
+    }
+
+    public void interactItem(int selection) {
+
+        selection--;
+        Item selectedItem = getInventoryAt(selection);
+        System.out.println("Name: " + selectedItem.getName());
+        System.out.println("Typ: " + selectedItem.getType());
+        System.out.println("Beschreibung: " + selectedItem.getDescription());
+        System.out.println("Effekte: " + selectedItem.getIntEffect() + "/" + selectedItem.getDoubleEffect());
+        
+
+        
+    }
+
+    public void addItem(Item item) {
+
+        this.inventory.add(item);
+
+    }
+
+    public Item getInventoryAt(int i) {
+
+        return inventory.get(i);
 
     }
 
@@ -230,6 +292,14 @@ public class Player {
     public void setPlayerLoc(Location newLoc) {
         this.playerLoc = newLoc;
 
+    }
+    
+    public List<Item> getInventory() {
+        return this.inventory;
+    }
+
+    public void setInventory(List<Item> inventory) {
+        this.inventory = inventory;
     }
 
 }

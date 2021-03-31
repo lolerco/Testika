@@ -123,11 +123,11 @@ public class Entity {
         this.mdef = mdef;
     }
 
-    public String getMobType() {
+    public int getMobType() {
         return this.mobType;
     }
 
-    public void setMobType(String mobType) {
+    public void setMobType(int mobType) {
         this.mobType = mobType;
     }
 

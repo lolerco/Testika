@@ -1,14 +1,15 @@
 public class Item {
     
     private String name;
-    private String usecase;
+    private String type;
+    private String description;
     private int intEffect;
     private double doubleEffect;
 
-    public Item(String name, String usecase) {
+    public Item(String name, String type, String description, int intEffect, double doubleEffect) {
 
         this.name = name;
-        this.usecase = usecase;
+        this.type = type;
 
     }
 
@@ -20,12 +21,20 @@ public class Item {
         this.name = name;
     }
 
-    public String getUsecase() {
-        return this.usecase;
+    public String getType() {
+        return this.type;
     }
 
-    public void setUsecase(String usecase) {
-        this.usecase = usecase;
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getIntEffect() {
