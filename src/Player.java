@@ -105,7 +105,7 @@ public class Player {
         String moveToString = System.console().readLine();
         int moveToInt = Integer.parseInt(moveToString);
         
-        moveToInt = moveToInt--; // warum funktioniert das nicht aber in getNearestAt(i-1) schon?
+        moveToInt--; // warum funktioniert das nicht aber in getNearestAt(i-1) schon?
         this.playerLoc = playerLoc.getNearestAt(moveToInt);
 
     }
@@ -115,7 +115,7 @@ public class Player {
         // Verschiedene Locations variieren (Castle, ruins, graveyard)?
         if (playerLoc == MainTestika.forest || playerLoc == MainTestika.shrine || playerLoc == MainTestika.revein || playerLoc == MainTestika.mine || playerLoc == MainTestika.coast || playerLoc == MainTestika.district || playerLoc == MainTestika.graveyard || playerLoc == MainTestika.ruins || playerLoc == MainTestika.castle) { 
 
-            
+
 
         }
 
@@ -127,31 +127,35 @@ public class Player {
         for (int i = 0; i < inventory.size(); i++) {
 
             Item item = this.inventory.get(i);
-            i++;
-            System.out.println("[" + i + "]" + " " + item.getName());
-            i--;
+            System.out.println("[" + (i+1) + "]" + " " + item.getName());
+            
         }
 
-        selectItem();
+        System.out.println("Moechtest du [1] ein Item auswaehlen oder [2] zurueck?"); //Frage skippen?
+        String choiceStg = System.console().readLine();
+        int choiceInt = Integer.parseInt(choiceStg);
 
-    }
-
-    public void selectItem() {
-
-        System.out.println("Moechtest du [1] ein Item auswaehlen oder [2] zurueck?");
-        String itemSelectStg = System.console().readLine();
-        int itemSelectInt = Integer.parseInt(itemSelectStg);
-
-        switch (itemSelectInt) {
+        switch (choiceInt) {
 
             case 1:
-                interactItem(itemSelectInt);
+                selectItem();
                 break;
             
             case 2:
                 break;
 
         }
+
+    }
+
+    public void selectItem() {
+
+        System.out.println("Welches Item moechtest du auswaehlen?");
+        String selectionStg = System.console().readLine();
+        int selectionInt = Integer.parseInt(selectionStg);
+
+        interactItem(selectionInt);
+
     }
 
     public void interactItem(int selection) {
@@ -161,7 +165,9 @@ public class Player {
         System.out.println("Name: " + selectedItem.getName());
         System.out.println("Typ: " + selectedItem.getType());
         System.out.println("Beschreibung: " + selectedItem.getDescription());
-        System.out.println("Effekte: " + selectedItem.getIntEffect() + "/" + selectedItem.getDoubleEffect());
+        System.out.println("Effekte: " + selectedItem.getIntEffect() + " / " + selectedItem.getDoubleEffect());
+        System.console().readLine();
+        // useItem
         
 
         
