@@ -6,16 +6,16 @@ public class Player {
     private String name;
     private int profession; // 1 Knight 2 Mage 3 Scavenger
     private int lvl = 1; // player starts at lvl 1
-    private int exp = 0;
-    private int gold = 0;
-    private int hp;
+    private double exp = 0;
+    private double gold = 0;
+    private double hp;
     private double hreg;
-    private int mp;
+    private double mp;
     private double mreg;
-    private int pdmg;
-    private int mdmg;
-    private int pdef;
-    private int mdef;
+    private double pdmg;
+    private double mdmg;
+    private double pdef;
+    private double mdef;
     private Location playerLoc;
     private List<Item> inventory = new ArrayList<>();
 
@@ -32,36 +32,36 @@ public class Player {
         switch (profession) {
             
             case 1: // Knight
-                this.hp = 20;
+                this.hp = 20.0;
                 this.hreg = 1.5;
-                this.mp = 15;
+                this.mp = 15.0;
                 this.mreg = 0.5;
-                this.pdmg = 8;
-                this.mdmg = 5;
-                this.pdef = 12;
-                this.mdef = 8;
+                this.pdmg = 8.0;
+                this.mdmg = 5.0;
+                this.pdef = 12.0;
+                this.mdef = 8.0;
                 break;
         
             case 2: // Mage
-                this.hp = 15;
+                this.hp = 15.0;
                 this.hreg = 0.5;
-                this.mp = 20;
+                this.mp = 20.0;
                 this.mreg = 1.5;
-                this.pdmg = 5;
-                this.mdmg = 8;
-                this.pdef = 8;
-                this.mdef = 12;
+                this.pdmg = 5.0;
+                this.mdmg = 8.0;
+                this.pdef = 8.0;
+                this.mdef = 12.0;
                 break;
             
             case 3: // Assasin
-                this.hp = 15;
-                this.hreg = 2;
-                this.mp = 15;
-                this.mreg = 2;
-                this.pdmg = 10;
-                this.mdmg = 10;
-                this.pdef = 5;
-                this.mdef = 5;
+                this.hp = 15.0;
+                this.hreg = 2.0;
+                this.mp = 15.0;
+                this.mreg = 2.0;
+                this.pdmg = 10.0;
+                this.mdmg = 10.0;
+                this.pdef = 5.0;
+                this.mdef = 5.0;
                 break;
     
         }
@@ -69,7 +69,7 @@ public class Player {
     }
 
     // Gold
-    private int addGold(int enemyGold) {
+    private double addGold(double enemyGold) {
 
         this.gold = gold + enemyGold;
 
@@ -78,15 +78,15 @@ public class Player {
     }
 
     // Exp (Zusammenfassen?)
-    public int gainExp(int enemyLvl) { 
+    public double gainExp(int enemyLvl) { 
 
-        int expGained = (enemyLvl*100)/this.lvl;
+        double expGained = (enemyLvl*100)/this.lvl;
 
         return expGained;
 
     }
 
-    private int addExp(int expGained) { // Ewiger Loop mit gleichen Exp?
+    private double addExp(double expGained) { // Ewiger Loop mit gleichen Exp?
 
         this.exp = this.exp + expGained;
 
@@ -166,7 +166,11 @@ public class Player {
         System.out.println("Typ: " + selectedItem.getType());
         System.out.println("Beschreibung: " + selectedItem.getDescription());
         System.out.println("Effekte: " + selectedItem.getIntEffect() + " / " + selectedItem.getDoubleEffect());
-        System.console().readLine();
+        
+        System.out.println("Moechtest du " + selectedItem.getName() + " verwenden [1] oder nicht [2]?"); // color change?
+        String decisionStg = System.console().readLine();
+        int decisionInt = Integer.parseInt(decisionStg);
+        
         // useItem
         
 
@@ -210,27 +214,27 @@ public class Player {
         this.lvl = lvl;
     }
 
-    public int getExp() {
+    public double getExp() {
         return this.exp;
     }
 
-    public void setExp(int exp) {
+    public void setExp(double exp) {
         this.exp = exp;
     }
 
-    public int getGold() {
+    public double getGold() {
         return this.gold;
     }
 
-    public void setGold(int gold) {
+    public void setGold(double gold) {
         this.gold = gold;
     }
 
-    public int getHp() {
+    public double getHp() {
         return this.hp;
     }
 
-    public void setHp(int hp) {
+    public void setHp(double hp) {
         this.hp = hp;
     }
 
@@ -242,11 +246,11 @@ public class Player {
         this.hreg = hreg;
     }
 
-    public int getMp() {
+    public double getMp() {
         return this.mp;
     }
 
-    public void setMp(int mp) {
+    public void setMp(double mp) {
         this.mp = mp;
     }
 
@@ -258,35 +262,35 @@ public class Player {
         this.mreg = mreg;
     }
 
-    public int getPdmg() {
+    public double getPdmg() {
         return this.pdmg;
     }
 
-    public void setPdmg(int pdmg) {
+    public void setPdmg(double pdmg) {
         this.pdmg = pdmg;
     }
 
-    public int getMdmg() {
+    public double getMdmg() {
         return this.mdmg;
     }
 
-    public void setMdmg(int mdmg) {
+    public void setMdmg(double mdmg) {
         this.mdmg = mdmg;
     }
 
-    public int getPdef() {
+    public double getPdef() {
         return this.pdef;
     }
 
-    public void setPdef(int pdef) {
+    public void setPdef(double pdef) {
         this.pdef = pdef;
     }
 
-    public int getMdef() {
+    public double getMdef() {
         return this.mdef;
     }
 
-    public void setMdef(int mdef) {
+    public void setMdef(double mdef) {
         this.mdef = mdef;
     }
 
