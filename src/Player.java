@@ -165,16 +165,34 @@ public class Player {
         System.out.println("Name: " + selectedItem.getName());
         System.out.println("Typ: " + selectedItem.getType());
         System.out.println("Beschreibung: " + selectedItem.getDescription());
-        System.out.println("Effekte: " + selectedItem.getIntEffect() + " / " + selectedItem.getDoubleEffect());
+        System.out.println("Effekt: " + selectedItem.getDoubleEffect()); //Umbenennen?
         
         System.out.println("Moechtest du " + selectedItem.getName() + " verwenden [1] oder nicht [2]?"); // color change?
         String decisionStg = System.console().readLine();
         int decisionInt = Integer.parseInt(decisionStg);
         
-        // useItem
-        
+        switch (decisionInt) {
 
+            case 1:
+                useItem(selectedItem);
+                break;
+            case 2:
+                break;
+
+        }
         
+    }
+
+    public void useItem(Item selectedItem) {
+
+        switch (selectedItem.getTypeInt()) {
+
+            case 1:
+                this.hp = this.hp + selectedItem.getDoubleEffect();
+                break;
+
+        }
+
     }
 
     public void addItem(Item item) {

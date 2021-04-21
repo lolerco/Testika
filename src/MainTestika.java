@@ -67,7 +67,7 @@ public class MainTestika {
         Location.connect(ruins, castle, "routeSchloss");
 
         player = new Player(playerProfession, playerName, forest);
-        Item potion = new Item("Heiltrank", "Verwendbar", "Ein einfacher Heiltrank", 20, 20.0);
+        Item potion = new Item("Heiltrank", "Verwendbar", 1,  "Ein einfacher Heiltrank", 20.0);
         player.addItem(potion);
 
     }

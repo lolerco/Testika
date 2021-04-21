@@ -2,14 +2,17 @@ public class Item {
     
     private String name;
     private String type;
+    private int typeInt;
     private String description;
-    private int intEffect;
     private double doubleEffect;
 
-    public Item(String name, String type, String description, int intEffect, double doubleEffect) {
+    public Item(String name, String type, int typeInt, String description, double doubleEffect) {
 
         this.name = name;
         this.type = type;
+        this.typeInt = typeInt;
+        this.description = description;
+        this.doubleEffect = doubleEffect;
 
     }
 
@@ -29,20 +32,20 @@ public class Item {
         this.type = type;
     }
 
+    public int getTypeInt() {
+        return this.typeInt;
+    }
+
+    public void setTypeInt(int typeInt) {
+        this.typeInt = typeInt;
+    }
+
     public String getDescription() {
         return this.description;
     }
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public int getIntEffect() {
-        return this.intEffect;
-    }
-
-    public void setIntEffect(int intEffect) {
-        this.intEffect = intEffect;
     }
 
     public double getDoubleEffect() {
