@@ -174,7 +174,7 @@ public class Player {
         switch (decisionInt) {
 
             case 1:
-                useItem(selectedItem);
+                useItem(selectedItem, selection); // int selection for removeItem method
                 break;
             case 2:
                 break;
@@ -183,12 +183,13 @@ public class Player {
         
     }
 
-    public void useItem(Item selectedItem) {
+    public void useItem(Item selectedItem, int selection) { 
 
         switch (selectedItem.getTypeInt()) {
 
             case 1:
                 this.hp = this.hp + selectedItem.getDoubleEffect();
+                removeItem(selection);
                 break;
 
         }
@@ -198,6 +199,12 @@ public class Player {
     public void addItem(Item item) {
 
         this.inventory.add(item);
+
+    }
+
+    public void removeItem(int selection) {
+
+        // removes Item from player Inventory list
 
     }
 
