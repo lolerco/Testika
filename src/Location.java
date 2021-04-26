@@ -66,7 +66,7 @@ public class Location {
 
     public Location getNearestAt(int i) {
 
-        Location newPlayerLoc = this.nearest.get(i-1);
+        Location newPlayerLoc = this.nearest.get(i); // warum könnte ich hier auch i-1 in Klammern schreiben
         newPlayerLoc.setVisited(true);
 
         return newPlayerLoc;

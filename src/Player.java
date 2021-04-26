@@ -204,7 +204,7 @@ public class Player {
 
     public void removeItem(int selection) {
 
-        // removes Item from player Inventory list
+        this.inventory.remove(selection);
 
     }
 
